@@ -24,7 +24,8 @@ if __name__ == '__main__':
 ```
 ## Phân tích 
 Xét hàm `zero_to_one`:
-    ```
+
+```
     def zero_to_one(bin_):
 	    str_ = ''
 	    for i in bin_:
@@ -32,15 +33,18 @@ Xét hàm `zero_to_one`:
 		    else: str_ += '0'
 	    else: print('End.')
 	    return str_
-    ```
+```
+    
 Dễ dàng nhận thấy đây chỉ là một hàm hoán đổi kí tự `1` và `0` trong xâu cho trước. Sẽ không có quá nhiều điều cần bàn về hàm này. Nhưng ta hoàn toàn có thể tái sử dụng `zero_to_one` cho việc giải mã sau này.
 
 Xét hàm `convert`:
-    ```
+
+```
     def convert(flag):
 	    bin_ = ' '.join(format(ord(x), 'b') for x in flag).replace(' ','1')
 	    return print("bin_: ",zero_to_one(bin_))
-    ```
+```
+
 Hàm `format(ord(x), 'b')` sẽ trả về mã ASCII của kí tự `x`dưới dạng nhị phân. Do đó, phần code `' '.join(format(ord(x), 'b') for x in flag)` sẽ ghép mã ASCII của tất cả kí tự trong xâu `flag` về một xâu duy nhất, ngăn cách các kí tự đó bằng khoảng trắng. Sau đó, hàm `replace(' ','1')` sẽ thay thế tất cả khoảng trắng bằng kí tự `1`. Kết quả, xâu bin_ thu được là một xâu chỉ chứa các kí tự `1` và `0` với mã ASCII của tất cả các kí tự trong xâu `flag` và ngăn cách bằng kí tự `1`. Cuối cùng, giá trị trả về của hàm là xâu bin_ nhưng đã qua hoán đổi bởi hàm `zero_to_one`.
 
 ## Giải mã
@@ -75,7 +79,10 @@ bin_="01111010010101100011010000111100001001000111100001010110011100100000100000
 print(reveal(zero_to_one(bin_)))
 ```
 Kết quả thu được:
-```1000010 1010100 1100101 1100001 1101101 1000011 1010100 1000110 1111011 1101001 1101101 1110000 1101111 1110010 1110100 1011111 1011111 1100010 1110101 1110100 1011111 1101001 1011111 1100100 1101111 1101110 1110100 1011111 1100011 1100001 1110010 1100101 1111101```
+
+```1000010 1010100 1100101 1100001 1101101 1000011 1010100 1000110 1111011 1101001 1101101 1110000 1101111 1110010 1110100 1011111 1011111 1100010 1110101 1110100 1011111 1101001 1011111 1100100 1101111 1101110 1110100 1011111 1100011 1100001 1110010 1100101 1111101
+```
+
 Ở đây mình convert trên trang rapidtables.com, thu được flag như sau: `BTeamCTF{import__but_i_dont_care}`
 
 ## Đánh giá
