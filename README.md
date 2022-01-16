@@ -45,7 +45,11 @@ Xét hàm `convert`:
 	    return print("bin_: ",zero_to_one(bin_))
 ```
 
-Hàm `format(ord(x), 'b')` sẽ trả về mã ASCII của kí tự `x`dưới dạng nhị phân. Do đó, phần code `' '.join(format(ord(x), 'b') for x in flag)` sẽ ghép mã ASCII của tất cả kí tự trong xâu `flag` về một xâu duy nhất, ngăn cách các kí tự đó bằng khoảng trắng. Sau đó, hàm `replace(' ','1')` sẽ thay thế tất cả khoảng trắng bằng kí tự `1`. Kết quả, xâu bin_ thu được là một xâu chỉ chứa các kí tự `1` và `0` với mã ASCII của tất cả các kí tự trong xâu `flag` và ngăn cách bằng kí tự `1`. Cuối cùng, giá trị trả về của hàm là xâu bin_ nhưng đã qua hoán đổi bởi hàm `zero_to_one`.
+Hàm `format(ord(x), 'b')` sẽ trả về mã ASCII của kí tự `x`dưới dạng nhị phân. Do đó, phần code 
+```
+' '.join(format(ord(x), 'b') for x in flag)
+``` 
+sẽ ghép mã ASCII của tất cả kí tự trong xâu `flag` về một xâu duy nhất, ngăn cách các kí tự đó bằng khoảng trắng. Sau đó, hàm `replace(' ','1')` sẽ thay thế tất cả khoảng trắng bằng kí tự `1`. Kết quả, xâu bin_ thu được là một xâu chỉ chứa các kí tự `1` và `0` với mã ASCII của tất cả các kí tự trong xâu `flag` và ngăn cách bằng kí tự `1`. Cuối cùng, giá trị trả về của hàm là xâu bin_ nhưng đã qua hoán đổi bởi hàm `zero_to_one`.
 
 ## Giải mã
 Ở cuối của file babyimport.py ta thấy giá trị của xâu sau mã hoá:
